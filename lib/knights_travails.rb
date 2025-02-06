@@ -27,6 +27,7 @@ def knight_moves(start_arr, end_arr)
 
   queue = [[start_arr]]
   visited = []
+  num_moves_to_finish = 0
 
   # breadth first search
   until queue.empty?
@@ -40,9 +41,10 @@ def knight_moves(start_arr, end_arr)
 
     # end condition, print out all spaces
     if current_position == end_arr
-      puts "You made it in #{current_path.length} moves! Here's your path:"
+      puts "You made it in #{current_path.length - 1} moves! Here's your path:"
       current_path.each do |arr|
         p arr
+        num_moves_to_finish += 1
       end
     end
 
@@ -52,8 +54,9 @@ def knight_moves(start_arr, end_arr)
     end
 
   end
+  num_moves_to_finish - 1
 end
 
-puts knight_moves([3,3],[4,3])
-puts knight_moves([3,3],[0,0])
-puts knight_moves([0,0],[7,7])
+#puts knight_moves([3,3],[4,3])
+#puts knight_moves([3,3],[0,0])
+#puts knight_moves([0,0],[7,7])
